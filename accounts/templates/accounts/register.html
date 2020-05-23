@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
 
@@ -21,5 +22,15 @@
         <hr>
     </div>
 </div>
+
+<!-- ECommerce Illustrations -->
+<div class="justify-content-center">
+    <div class="row text-center" padding-left: 350px; padding-right: 40px">
+        <div class="col-md-12">
+            <img src="{% static "accounts/sign-up-4.png" %}" width="200px" height="200px"/>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

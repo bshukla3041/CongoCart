@@ -8,12 +8,6 @@ from .forms import RegistrationForm, PasswordSettingForm, LoginForm, UpdateProfi
 from .models import CongoUser
 
 
-def home_view(request):
-    template = 'accounts/home.html'
-    context = {}
-    return render(request, template, context)
-
-
 @csrf_protect
 def register_view(request):
     template = 'accounts/register.html'

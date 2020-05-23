@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-<h1>LOGOUT PAGE</h1>
+<h1 class="text-center">LOGOUT PAGE</h1>
 <hr>
 
 <div class="container" style="padding-top: 65px">
@@ -14,6 +15,15 @@
             <small class="text-muted">
                 Click <a href="{% url 'login' %}">here</a> to login again
             </small>
+        </div>
+    </div>
+</div>
+
+<!-- ECommerce Illustrations -->
+<div class="justify-content-center">
+    <div class="row text-center" padding-left: 350px; padding-right: 40px">
+        <div class="col-md-12">
+            <img src="{% static "accounts/mirage-logged-out.png" %}" width="200px" height="200px"/>
         </div>
     </div>
 </div>
