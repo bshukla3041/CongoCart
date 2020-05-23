@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>LOGOUT PAGE</h1>
+<hr>
+
+<div class="container" style="padding-top: 65px">
+    <div class="row well justify-content-center" style="padding-top: 20px">
+        <div class="content-section col-8">
+            <h3>You have been logged out</h3>
+        </div>
+        <div class="col-8 border-top pt-3">
+            <small class="text-muted">
+                Click <a href="{% url 'login' %}">here</a> to login again
+            </small>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
