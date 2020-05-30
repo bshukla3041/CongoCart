@@ -4,8 +4,8 @@
 
 {% block content %}
 
-<h1 class="text-center">LOGIN PAGE</h1>
-<hr>
+{#<h1 class="text-center">LOGIN PAGE</h1>#}
+{#<hr>#}
 
 <div class="row justify-content-center" style="padding-top: 20px">
     <div class="content-section col-11 col-sm-8 col-md-4">
@@ -15,7 +15,7 @@
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-info" type="submit">Login</button>
+                <button class="btn btn-info rounded-pill" type="submit">Login</button>
             </div>
         </form>
         <hr>
@@ -31,7 +31,7 @@
 <div class="justify-content-center">
     <div class="row text-center" padding-left: 350px; padding-right: 40px">
         <div class="col-md-12">
-            <img src="{% static "accounts/mirage-sign-in.png" %}" width="200px" height="200px" />
+            <img src="{% static "accounts/mirage-sign-in.png" %}" width="180px" height="180px" />
         </div>
     </div>
 </div>

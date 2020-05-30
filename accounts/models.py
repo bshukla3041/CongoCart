@@ -61,14 +61,18 @@ class CongoUserProfile(models.Model):
     FASHION = 'FS'
     HOME_DECOR = 'HD'
     GROCERY = 'GC'
-    OTHERS = 'OT'
+    MEDICINES = 'MD'
+    HEALTHFIT = 'HF'
+    BOOKS = 'BK'
     BUSINESS_CATEGORIES = [
         (ELECTRONICS, 'Electronics'),
         (APPLIANCES, 'Appliances'),
         (FASHION, 'Fashion'),
         (HOME_DECOR, 'Home Decoration'),
         (GROCERY, 'Groceries'),
-        (OTHERS, 'Others')
+        (MEDICINES, 'Medicines'),
+        (HEALTHFIT, 'Health & Fitness'),
+        (BOOKS, 'Books & Stationaries'),
     ]
 
     congo_user = models.OneToOneField(

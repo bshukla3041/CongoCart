@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from phonenumber_field.phonenumber import PhoneNumber
 
 from .forms import RegistrationForm, PasswordSettingForm, LoginForm, UpdateProfileForm
-from .models import CongoUser
+from .models import CongoUser, CongoUserProfile
 
 
 @csrf_protect
@@ -84,6 +84,12 @@ def logout_view(request):
 def update_profile_view(request):
     context = {}
     template = 'accounts/update_profile.html'
+    update_profile_form = None
+    congo_user = request.user
+    congo_user_profile = CongoUserProfile.objects.filter(congo_user=congo_user)
+    if congo_user_profile.count() > 0:
+        congo_user_profile = congo_user_profile.first()
+        update_profile_form = UpdateProfileForm(instance=congo_user_profile)
     if request.POST:
         update_profile_form = UpdateProfileForm(request.POST)
         if update_profile_form.is_valid():
@@ -95,6 +101,7 @@ def update_profile_view(request):
         else:
             context['form'] = update_profile_form
     else:
-        update_profile_form = UpdateProfileForm()
+        if update_profile_form is None:
+            update_profile_form = UpdateProfileForm()
         context['form'] = update_profile_form
     return render(request, template, context)
