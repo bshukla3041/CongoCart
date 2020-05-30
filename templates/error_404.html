@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if not request.user.is_authenticated %}
+<div class="container m-3 p-3">
+    <img
+        src="{% static 'error_404.jpg' %}" class="img-fluid" />
+</div>
+{% endif %}
+{% endblock content %}
