@@ -1,0 +1,39 @@
+.card {
+    background: rgb(101, 208, 140);
+    background: linear-gradient(90deg, rgba(101, 208, 140, 1) 0%, rgba(47, 190, 61, 1) 100%, rgba(0, 212, 255, 1) 100%);
+    color: white;
+    transition: transform .3s;
+    margin-top: 25px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card a {
+    color: white;
+}
+
+.card-columns {
+    @include media-breakpoint-only(lg) {
+        column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+        column-count: 5;
+    }
+}
+
+.logo {
+    padding-left: 15px;
+    padding-right: 15px;
+    /* font-family: 'Press Start 2P', cursive; */
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 25px;
+}
+
+@font-face {
+    font-family: 'Product Sans Light Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: url("{% static 'fonts/ProductSans-Light.woff' %}") format('woff');
+}
