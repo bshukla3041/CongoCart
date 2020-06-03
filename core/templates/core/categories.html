@@ -3,34 +3,44 @@
 
 {% block content %}
 
-<h1 class="text-center" style="font-family:'Ubuntu', sans-serif;">{{ category.name }}</h1>
+<h2 class="mt-4" style="color: black; font-family: 'Ubuntu', sans-serif; font-size: 27px;">What are you looking for ?</h2>
 <hr>
-
-{% for products in product_list %}
 <div class="row justify-content-center">
     <div class="card-deck">
-        {% for product in products %}
+        {% for category in categories1 %}
         <div class="card col-sm-3 col-md-4" style="width: 18rem; border-radius: 2px;">
-            <img class="card-img-top rounded-circle p-3" src="{{ product.image.url }}" height="250" width="250"
+            <img class="card-img-top rounded-circle p-3" src="{{ category.image.url }}" height="250" width="250"
                 alt="Card image cap">
             <div class="card-body">
-                <a href="{% url 'product_detail_view' category=category product_id=product.id %}">
-                    <p class="card-text text-center"><strong>{{ product.title }}
-                            | {{ product.description_short }} | <span
-                                class="badge badge-warning">{{ product.label }}</span>
-                        </strong></p>
+                <a href="{% url 'category_view' category.title %}">
+                    <p class="card-text text-center"><strong style="font-size: 20px;">{{ category.name }}</strong></p>
                 </a>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
-{% endfor %}
+
+<div class="row justify-content-center">
+    <div class="card-deck">
+        {% for category in categories2 %}
+        <div class="card col-sm-12 col-md-3" style="width: 18rem; border-radius: 2px;">
+            <img class="card-img-top rounded-circle p-3" src="{{ category.image.url }}" height="250" width="250"
+                alt="Card image cap">
+            <div class="card-body">
+                <a href="{% url 'category_view' category.title %}">
+                    <p class="card-text text-center"><strong style="font-size: 20px;">{{ category.name }}</strong></p>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 <hr>
 
 <!-- Footer -->
-<footer class="footer text-center">
+<footer class="footer text-center mt-4 pt-4">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 h-100 text-center text-lg-left my-auto">

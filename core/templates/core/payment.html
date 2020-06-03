@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container" style="padding-top: 65px">
+    <div class="row well justify-content-center text-center" style="padding-top: 20px">
+        <div class="content-section col-sm-12 col-md-8">
+            <strong>Your order total is &#x20b9; {{ total_price }}</strong>
+        </div>
+        <div class="content-section col-sm-12 col-md-8">
+            <strong>Pay with card to complete the order</strong>
+        </div>
+    </div>
+    <hr>
+    <div class="row well justify-content-center my-4">
+        <form action="." method="post">
+            {% csrf_token %}
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ key }}"
+                data-description="CongoCart" data-amount="{{ stripe_amount }}" data-locale="auto"
+                data-currency="inr"></script>
+        </form>
+    </div>
+</div>
+
+<div class="row justify-content-center text-center">
+    <div class="col-sm-12 col-md-12">
+        <img src="{% static "core/vector-collages-payment-processed-4.png" %}" class="img-fluid" width="450px"
+            height="300px" />
+    </div>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div class="container dark-grey-text mt-5">
+    <div class="row justify-content-center text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60" viewBox="0 0 172 172"
+            style=" fill:#000000;">
+            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                style="mix-blend-mode: normal">
+                <path d="M0,172v-172h172v172z" fill="none"></path>
+                <g fill="#2ecc71">
+                    <path
+                        d="M86,17.2c-37.9948,0 -68.8,30.8052 -68.8,68.8c0,37.9948 30.8052,68.8 68.8,68.8c37.9948,0 68.8,-30.8052 68.8,-68.8c0,-37.9948 -30.8052,-68.8 -68.8,-68.8zM45.86667,126.94173c6.6908,-20.06667 26.75747,-12.23493 30.1,-23.10533v-7.24693c-1.50213,-0.8084 -5.80787,-6.35827 -6.2608,-10.69267c-1.1868,-0.1032 -3.0444,-1.27853 -3.5948,-5.92827c-0.2924,-2.494 0.8772,-3.89867 1.5824,-4.34013c0,0 -1.76587,-4.0248 -1.76587,-8.02093c0.00573,-11.87947 5.88813,-21.7408 20.0724,-21.7408c7.65973,0 10.03333,5.42947 10.03333,5.42947c6.8456,0 10.03333,7.50493 10.03333,16.3056c0,4.386 -1.76587,8.02093 -1.76587,8.02093c0.71093,0.44147 1.88053,1.84613 1.58813,4.34013c-0.5504,4.64973 -2.408,5.82507 -3.5948,5.92827c-0.45293,4.3344 -4.75293,9.88427 -6.2608,10.69267v7.24693c3.34253,10.87613 23.4092,3.0444 30.1,23.11107c0,0 -15.00987,16.3916 -40.13333,16.3916c-25.2668,0 -40.13333,-16.3916 -40.13333,-16.3916z">
+                    </path>
+                </g>
+            </g>
+        </svg>
+    </div>
+    <h2 class="mt-4 text-center" style="color: black; font-family: 'Ubuntu', sans-serif; font-size: 27px;">My Profile
+    </h2>
+    <hr>
+    <dl class="row justify-content-around">
+        <dt class="col-sm-5">Name</dt>
+        <dd class="col-sm-5">{{profile.first_name}} {{profile.last_name}}</dd>
+
+        <dt class="col-sm-5">Phone Number</dt>
+        <dd class="col-sm-5">{{profile.congo_user}}</dd>
+
+        <dt class="col-sm-5">Business Name</dt>
+        <dd class="col-sm-5">{{profile.business_name}}
+            {% if profile.is_verified %}
+            <img src="https://img.icons8.com/color/24/000000/verified-account.png" />
+            {% endif %}
+        </dd>
+
+        <dt class="col-sm-5">GST Number</dt>
+        <dd class="col-sm-5">{{profile.gst_number}}</dd>
+
+        <dt class="col-sm-5">Business Type</dt>
+        <dd class="col-sm-5">{{profile.business_type}}</dd>
+
+        <dt class="col-sm-5">Business Domain</dt>
+        <dd class="col-sm-5">{{profile.business_category}}</dd>
+
+        <dt class="col-sm-5">Date Joined</dt>
+        <dd class="col-sm-5">{{profile.congo_user.date_joined}}</dd>
+
+    </dl>
+    <hr>
+</div>
+
+<!-- Footer -->
+<footer class="footer text-center" style="padding-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul class="list-inline mb-2">
+                    <li class="list-inline-item">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#team">Team</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Terms of Use</a>
+                    </li>
+                    <li class="list-inline-item">&sdot;</li>
+                    <li class="list-inline-item">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                </ul>
+                <p class="text-muted small mb-4 mb-lg-0"><a href="https://icons8.com">illustration by Ouch.pics
+                    </a></p>
+                <p class="text-muted small mb-4 mb-lg-0">&copy; CongoCart 2020. All Rights
+                    Reserved.</p>
+            </div>
+            <!-- Social Media Icons -->
+            <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" />
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-3">
+                        <a href="#">
+                            <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" />
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <img src="https://img.icons8.com/fluent/48/000000/twitter.png" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1 class="text-center">Order Successful <img src="https://img.icons8.com/fluent/44/000000/ok.png" /></h1>
+<hr>
+
+<div class="row justify-content-center text-center">
+    <div class="col-sm-12 col-md-12">
+        <img src="{% static "core/mirage-done.png" %}" class="img-fluid" width="150px" height="50px" />
+    </div>
+</div>
+
+<div class="container" style="padding-top: 65px">
+    <div class="row well justify-content-center" style="padding-top: 20px">
+        <div class="content-section col-8">
+            <strong>Congratulations! Your payment of &#x20b9; {{ total_price }} was successful. Your order has been
+                placed. You will
+                receive delivery notifications soon.</strong>
+        </div>
+        <div class="col-8 border-top pt-3">
+            <small class="text-muted">
+                Click <a href="{% url 'home' %}">here</a> to shop again
+            </small>
+        </div>
+    </div>
+</div>
+
+<!-- ECommerce Illustrations -->
+<!-- <div class="justify-content-center">
+    <div class="row text-center" padding-left: 350px; padding-right: 40px">
+        <div class="col-md-12">
+            <img src="{% static "accounts/mirage-logged-out.png" %}" width="200px" height="200px"/>
+        </div>
+    </div>
+</div> -->
+
+
+
+{% endblock content %}
