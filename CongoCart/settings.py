@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'phonenumber_field',
+    'django_countries',
     'crispy_forms',
     'accounts',
     'core',
@@ -138,3 +139,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 LOGIN_URL = 'login'
+
+STRIPE_SECRET_KEY = 'secret_stripe_test_key'
+STRIPE_PUBLISHABLE_KEY = 'publishable_stripe_test_key'
