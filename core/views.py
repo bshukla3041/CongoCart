@@ -3,6 +3,7 @@ from .forms import ProductAddForm, AddToCartForm, AddressForm
 from .models import Category, Product, OrderItem, Address, Order, Payment
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 import stripe
 from django.conf import settings
@@ -70,6 +71,11 @@ def product_detail_view(request, category, product_id):
     context['other_products'] = other_products
 
     if request.POST:
+        if not request.user.is_authenticated:
+            messages.success(request, 'You need to be logged in to continue shopping.')
+            add_to_cart_form = AddToCartForm()
+            context['form'] = add_to_cart_form
+            return render(request, template, context)
         form = AddToCartForm(request.POST)
         if form.is_valid():
             order_item = form.save(commit=False)
@@ -210,9 +216,15 @@ def charge_view(request):
     return render(request, 'core/charge.html', context)
 
 
+@login_required
 def profile_view(request):
     template = 'core/profile.html'
     context = {}
-    profile = CongoUserProfile.objects.get(congo_user=request.user)
+    profile = CongoUserProfile.objects.filter(congo_user=request.user)
+    if profile.count() > 0:
+        profile = profile.first()
+    else:
+        messages.success(request, 'Your profile has not been updated! Please update your profile first!')
+        return render(request, template, context)
     context['profile'] = profile
     return render(request, template, context)

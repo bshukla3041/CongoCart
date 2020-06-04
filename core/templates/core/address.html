@@ -5,19 +5,35 @@
 
 {% block content %}
 
-<div class="row justify-content-center" style="padding-top: 20px">
-    <div class="content-section col-11 col-sm-8 col-md-4">
-        <form action="." method="POST">{% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">All fields are mandatory</legend>
-                {{ address_form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-info rounded-pill" type="submit">Proceed to Pay</button>
+    <div class="row justify-content-center" style="padding-top: 20px">
+        <div class="content-section col-11 col-sm-8 col-md-4">
+            <div class="text-center mt-2 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     width="50" height="50"
+                     viewBox="0 0 172 172"
+                     style=" fill:#000000;">
+                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                       stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                       font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                       style="mix-blend-mode: normal">
+                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                        <g fill="#2ecc71">
+                            <path d="M86,6.88c-24.65781,0 -44.72,20.06219 -44.72,44.72c0,32.76063 40.27219,85.85219 41.97875,88.09625l2.74125,3.56094l2.74125,-3.56094c1.70656,-2.24406 41.97875,-55.33562 41.97875,-88.09625c0,-24.65781 -20.06219,-44.72 -44.72,-44.72zM86,37.84c7.60563,0 13.76,6.15438 13.76,13.76c0,7.60563 -6.15437,13.76 -13.76,13.76c-7.60562,0 -13.76,-6.15437 -13.76,-13.76c0,-7.60562 6.15438,-13.76 13.76,-13.76zM25.10125,110.08l-19.6725,55.04h161.1425l-19.6725,-55.04h-26.32406c-1.34375,2.365 -2.6875,4.66281 -4.03125,6.88h25.51781l14.7275,41.28h-141.5775l14.7275,-41.28h25.51781c-1.34375,-2.21719 -2.6875,-4.515 -4.03125,-6.88z"></path>
+                        </g>
+                    </g>
+                </svg>
             </div>
-        </form>
-        <hr>
+            <form action="." method="POST">{% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4 text-center">Address</legend>
+                    {{ address_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-success rounded-pill" type="submit">Proceed to Pay</button>
+                </div>
+            </form>
+            <hr>
+        </div>
     </div>
-</div>
 
 {% endblock %}
