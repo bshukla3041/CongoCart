@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from phonenumber_field.phonenumber import PhoneNumber
+from django.contrib import messages
 
 from .forms import RegistrationForm, PasswordSettingForm, LoginForm, UpdateProfileForm
 from .models import CongoUser, CongoUserProfile
@@ -41,6 +42,7 @@ def password_set_view(request):
             congo_user = CongoUser.objects.create_user(
                 phone_number=phone_number, password=password)
             login(request, congo_user)
+            messages.success(request, 'Your account has been successfully setup. Welcome to CongoCart !')
             return redirect('home')
         else:
             context['form'] = password_form
@@ -76,8 +78,10 @@ def login_view(request):
 
 @login_required
 def logout_view(request):
+    template = 'accounts/logout.html'
+    context = {}
     logout(request)
-    return redirect('home')
+    return render(request, template, context)
 
 
 @login_required

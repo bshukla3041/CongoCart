@@ -6,29 +6,44 @@
 {% block content %}
 
 
-<div class="row justify-content-center" style="padding-top: 20px">
-    <div class="content-section col-11 col-sm-8 col-md-4">
-        <form action="." method="POST">{% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Enter Phone Number</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-success rounded-pill" type="submit">Next</button>
-            </div>
-        </form>
-        <hr>
-    </div>
-</div>
-
-<!-- ECommerce Illustrations -->
-<div class="justify-content-center">
-    <div class="row text-center">
-        <div class="col-md-12">
-            <img src="{% static "accounts/sign-up-4.png" %}" width="200px" height="200px" class="img-fluid" />
+    <div class="row justify-content-center" style="padding-top: 20px">
+        <div class="content-section col-11 col-sm-8 col-md-4">
+            <form action="." method="POST">{% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Enter Phone Number
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                             width="32" height="32"
+                             viewBox="0 0 172 172"
+                             style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                               stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                               font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                               style="mix-blend-mode: normal">
+                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                <g fill="#2ecc71">
+                                    <path d="M46.52734,16.125c-2.81347,0 -5.58496,1.00781 -7.89453,2.85547l-0.33594,0.16797l-0.16797,0.16797l-16.79687,17.30078l0.16797,0.16797c-5.18604,4.78711 -6.78174,11.94678 -4.53516,18.14063c0.02099,0.04199 -0.02099,0.12598 0,0.16797c4.55615,13.03857 16.20898,38.21289 38.96875,60.97266c22.84375,22.84375 48.35401,34.03467 60.97266,38.96875h0.16797c6.52979,2.18359 13.60547,0.62989 18.64453,-3.69531l16.96484,-16.96484c4.45117,-4.45117 4.45117,-12.17773 0,-16.62891l-21.83594,-21.83594l-0.16797,-0.33594c-4.45117,-4.45117 -12.3457,-4.45117 -16.79687,0l-10.75,10.75c-3.88428,-1.86865 -13.14355,-6.65576 -22.00391,-15.11719c-8.79736,-8.39844 -13.29053,-18.05664 -14.94922,-21.83594l10.75,-10.75c4.51416,-4.51416 4.59815,-12.03076 -0.16797,-16.46094l0.16797,-0.16797l-0.50391,-0.50391l-21.5,-22.17187l-0.16797,-0.16797l-0.33594,-0.16797c-2.30957,-1.84766 -5.08105,-2.85547 -7.89453,-2.85547zM46.52734,26.875c0.39893,0 0.79785,0.18896 1.17578,0.50391l21.5,22.00391l0.50391,0.50391c-0.04199,-0.04199 0.31494,0.5249 -0.33594,1.17578l-13.4375,13.4375l-2.51953,2.35156l1.17578,3.35938c0,0 6.17285,16.52393 19.14844,28.89063l1.17578,1.00781c12.49268,11.40088 27.21094,17.63672 27.21094,17.63672l3.35938,1.51172l15.95703,-15.95703c0.92383,-0.92383 0.75586,-0.92383 1.67969,0l22.00391,22.00391c0.92383,0.92383 0.92383,0.58789 0,1.51172l-16.46094,16.46094c-2.47754,2.1206 -5.10205,2.56153 -8.23047,1.51172c-12.17773,-4.78711 -35.84033,-15.18018 -56.94141,-36.28125c-21.26904,-21.26904 -32.37597,-45.39355 -36.44922,-57.10937c-0.81885,-2.18359 -0.23096,-5.41699 1.67969,-7.05469l0.33594,-0.33594l16.29297,-16.62891c0.37793,-0.31494 0.77685,-0.50391 1.17578,-0.50391z"></path>
+                                </g>
+                            </g>
+                        </svg>
+                    </legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-success rounded-pill" type="submit">Next</button>
+                </div>
+            </form>
+            <hr>
         </div>
     </div>
-</div>
+
+    <!-- ECommerce Illustrations -->
+    <div class="justify-content-center">
+        <div class="row text-center">
+            <div class="col-md-12 mt-4">
+                <img src="{% static "accounts/sign-up-4.png" %}" width="200px" height="200px" class="img-fluid"/>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}

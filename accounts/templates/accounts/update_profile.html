@@ -5,22 +5,35 @@
 
 {% block content %}
 
-{#<h1 class="text-center">UPDATE PROFILE</h1>#}
-{#<hr>#}
-
-<div class="row justify-content-center" style="padding-top: 20px">
-    <div class="content-section col-11 col-sm-8 col-md-4">
-        <form action="." method="POST">{% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">All fields are mandatory</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-success rounded-pill" type="submit">Update</button>
+    <div class="row justify-content-center" style="padding-top: 20px">
+        <div class="content-section col-11 col-sm-8 col-md-4">
+            <div class="text-center mt-2 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     width="50" height="50"
+                     viewBox="0 0 172 172"
+                     style=" fill:#000000;">
+                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                       stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                       font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                       style="mix-blend-mode: normal">
+                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                        <g fill="#2ecc71">
+                            <path d="M86,17.2112c-24.3208,0 -34.4,15.6004 -34.4,34.4c0,6.3296 3.02344,12.68724 3.02344,12.68724c-1.21547,0.69947 -3.21443,2.91979 -2.7099,6.86432c0.94027,7.35587 4.12925,9.22906 6.15885,9.38386c0.774,6.8628 8.14761,15.64152 10.72761,16.92005v11.46667c-5.73333,17.2 -51.6,5.73333 -51.6,45.86667h77.13125l0.27995,-1.66849c0.38413,-2.38507 1.50527,-4.58469 3.2138,-6.29323l25.90078,-25.91198c-9.58613,-2.82653 -18.24391,-5.14164 -20.52578,-11.99297v-11.46667c2.58,-1.27853 9.95361,-10.05725 10.72761,-16.92005c2.0296,-0.1548 5.21858,-2.02799 6.15885,-9.38386c0.50454,-3.95027 -1.49443,-6.16485 -2.70989,-6.86432c0,0 3.02344,-5.74418 3.02344,-12.68724c0,-13.92053 -5.46387,-25.8 -17.2,-25.8c0,0 -4.0764,-8.6 -17.2,-8.6zM161.86589,103.2c-2.59433,0 -5.18867,0.98945 -7.16667,2.96745l-3.01224,3.01224l14.33333,14.33333l3.01224,-3.01224c3.956,-3.956 3.956,-10.37733 0,-14.33333c-1.978,-1.978 -4.57233,-2.96745 -7.16667,-2.96745zM143.57969,117.28698l-37.6474,37.6586l-2.73229,17.05442l17.06562,-2.72109l37.6474,-37.6586z"></path>
+                        </g>
+                    </g>
+                </svg>
             </div>
-        </form>
-        <hr>
+            <form action="." method="POST">{% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4 text-center">Profile Update</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-success rounded-pill" type="submit">Update</button>
+                </div>
+            </form>
+            <hr>
+        </div>
     </div>
-</div>
 
 {% endblock %}
