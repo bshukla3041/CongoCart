@@ -1,5 +1,5 @@
 from accounts.models import CongoUserProfile
-from .forms import ProductAddForm, AddToCartForm, AddressForm
+from .forms import ProductAddForm, AddToCartForm, AddressForm, SearchForm
 from .models import Category, Product, OrderItem, Address, Order, Payment
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -90,6 +90,7 @@ def product_detail_view(request, category, product_id):
         return render(request, template, context)
 
 
+# Product Add View
 @login_required
 def product_add_view(request):
     template = 'core/sell.html'
@@ -112,7 +113,7 @@ def product_add_view(request):
         context['form'] = product_form
     return render(request, template, context)
 
-
+# Cart View
 @login_required
 def cart_view(request):
     template = 'core/cart.html'
@@ -127,6 +128,7 @@ def cart_view(request):
     return render(request, template, context)
 
 
+# Shipping Address View
 @login_required
 def shipping_address_view(request):
     template = 'core/address.html'
@@ -146,6 +148,7 @@ def shipping_address_view(request):
     return render(request, template, context)
 
 
+# Payment Page View
 @login_required
 def checkout_view(request):
     template = 'core/payment.html'
@@ -174,7 +177,6 @@ def checkout_view(request):
     context['key'] = settings.STRIPE_PUBLISHABLE_KEY
 
     # fetch order object
-    order = Order.objects.create(buyer=request.user, ordered=False)
 
     if request.method == 'POST':
         charge = stripe.Charge.create(
@@ -191,6 +193,7 @@ def checkout_view(request):
         payment.save()
 
         # assign the payment to the order and make all the items ordered
+        order = Order.objects.create(buyer=request.user, ordered=False)
         order.ordered = True
         order.payment = payment
         order.shipping_address = address
@@ -204,6 +207,7 @@ def checkout_view(request):
     return render(request, template, context)
 
 
+# Payment Success View
 @login_required
 def charge_view(request):
     cart_items = OrderItem.objects.filter(buyer=request.user, ordered=False)
@@ -216,6 +220,7 @@ def charge_view(request):
     return render(request, 'core/charge.html', context)
 
 
+# User Profile View
 @login_required
 def profile_view(request):
     template = 'core/profile.html'
@@ -227,4 +232,16 @@ def profile_view(request):
         messages.success(request, 'Your profile has not been updated! Please update your profile first!')
         return render(request, template, context)
     context['profile'] = profile
+    return render(request, template, context)
+
+
+# Past Orders View
+@login_required
+def past_order_view(request):
+    template = 'core/past_orders.html'
+    context = {}
+
+    past_orders = Order.objects.filter(buyer=request.user)
+    past_orders = list(reversed(past_orders))
+    context['past_orders'] = past_orders
     return render(request, template, context)

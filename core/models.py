@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django_countries.fields import CountryField
 
-
 LABEL_CHOICES = (
     ('SALE', 'sale'),
     ('NEW', 'new'),
@@ -75,7 +74,7 @@ class Order(models.Model):
     buyer = models.ForeignKey(get_user_model(),
                               on_delete=models.CASCADE)
     items = models.ManyToManyField(OrderItem)
-    ordered_date = models.DateTimeField(null=True, blank=True)
+    ordered_date = models.DateTimeField(auto_now=True, null=True, blank=True)
     ordered = models.BooleanField(default=False)
     shipping_address = models.ForeignKey(
         Address, on_delete=models.SET_NULL, blank=True, null=True)

@@ -27,3 +27,7 @@ class AddressForm(forms.ModelForm):
                   'street_address',
                   'country',
                   'zip',)
+
+
+class SearchForm(forms.Form):
+    keywords = forms.CharField(max_length=100)

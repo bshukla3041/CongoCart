@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+    <div class="container dark-grey-text mt-4">
+        <div class="row justify-content-center text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                 width="50" height="50"
+                 viewBox="0 0 226 226"
+                 style=" fill:#000000;">
+                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                   stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                   font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                   style="mix-blend-mode: normal">
+                    <path d="M0,226v-226h226v226z" fill="none"></path>
+                    <g fill="#2ecc71">
+                        <path d="M72.32,45.2c-37.37828,0 -67.8,30.42172 -67.8,67.8c0,37.37828 30.42172,67.8 67.8,67.8c37.37828,0 67.8,-30.42172 67.8,-67.8c0,-37.37828 -30.42172,-67.8 -67.8,-67.8zM110.03375,46.0475c23.34156,13.20688 39.12625,38.27875 39.12625,66.9525c0,28.67375 -15.78469,53.74563 -39.12625,66.9525c32.36391,-5.10266 57.20625,-33.15844 57.20625,-66.9525c0,-33.79406 -24.84234,-61.84984 -57.20625,-66.9525zM137.15375,46.0475c23.34156,13.20688 39.12625,38.27875 39.12625,66.9525c0,28.67375 -15.78469,53.74563 -39.12625,66.9525c32.36391,-5.10266 57.20625,-33.15844 57.20625,-66.9525c0,-33.79406 -24.84234,-61.84984 -57.20625,-66.9525zM164.27375,46.0475c23.34156,13.20688 39.12625,38.27875 39.12625,66.9525c0,28.67375 -15.78469,53.74563 -39.12625,66.9525c32.36391,-5.10266 57.20625,-33.15844 57.20625,-66.9525c0,-33.79406 -24.84234,-61.84984 -57.20625,-66.9525zM72.32,63.28c2.48953,0 4.52,2.03047 4.52,4.52v45.2c0,1.20063 -0.42375,2.40125 -1.27125,3.24875l-22.6,22.6c-0.88281,0.88281 -2.08344,1.27125 -3.24875,1.27125c-1.16531,0 -2.36594,-0.38844 -3.24875,-1.27125c-1.76562,-1.76562 -1.76562,-4.73188 0,-6.4975l21.32875,-21.1875v-43.36375c0,-2.48953 2.03047,-4.52 4.52,-4.52z"></path>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <h2 class="mt-2 mb-2 text-center" style="color: black; font-size: 27px;">
+            My Orders
+        </h2>
+        <hr>
+        <div class="row justify-content-center mt-4">
+            {% for order in past_orders %}
+
+                <div class="col-md-12 background-light m-4 bg-light shadow-lg">
+                    <div class=" row justify-content-between">
+                        <div class="col-4 text-left p-3"><strong>ORDER # {{ order.id }}</strong></div>
+                        <div class="col-4 text-left p-3"><strong>TOTAL &#x20b9; {{ order.payment.amount }}</strong>
+                        </div>
+                        <div class="col-4 text-right p-3"><strong>ORDER PLACED on {{ order.ordered_date }}</strong>
+                        </div>
+                    </div>
+                    <hr>
+                    <ul class="list-unstyled">
+                        {% for order_item in order.items.all %}
+                            <li class="media my-4">
+                                <img src="{{ order_item.item.image.url }}" class="m-4" width="72px"
+                                     height="72px"/>
+                                <div class="media-body">
+                                    <strong class="mt-1 mb-1"><a
+                                            href="{% url 'product_detail_view' category=order_item.item.category product_id=order_item.item.id %}">{{ order_item.item.title }}</a></strong>
+                                    <p><em>{{ order_item.item.description_short }}</em></p>
+                                    <table class="table table-borderless table-sm">
+                                        <tbody>
+                                        <tr>
+                                            <td width="20%">Quantity</td>
+                                            <td>{{ order_item.quantity }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Price</td>
+                                            <td>&#x20b9; {{ order_item.total_price }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sold By</td>
+                                            <td>{{ order_item.item.seller.profile.business_name }}
+                                                {% if order_item.item.seller.is_verified %}
+                                                    <img src="https://img.icons8.com/color/24/000000/verified-account.png"/>
+                                                {% endif %}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                            <hr>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <hr>
+
+{% endblock content %}
