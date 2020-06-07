@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>CongoCart</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
     <style>
         html,
@@ -20,8 +21,7 @@
             margin: 0;
             overflow-x: hidden;
             /* font-family: 'Montserrat', sans-serif; */
-            font-family: 'Ubuntu', sans-serif;
-            /* font-family: 'Product Sans Light Regular'; */
+        {#font-family: 'Ubuntu', sans-serif;#} font-family: 'Product Sans Light Regular';
         }
 
         @font-face {
@@ -35,99 +35,111 @@
 
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top border-bottom shadow-lg">
-        {% load static %}
-        <a class="navbar-brand" href="{% url 'home' %}">
-            {#        <img src="https://img.icons8.com/wired/64/2ecc71/shopping-bag.png" width="40px" height="40px"/>#}
-            <strong class="logo">CongoCart</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleContent"
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top border-bottom shadow-lg">
+    {% load static %}
+    <a class="navbar-brand" href="{% url 'home' %}">
+        <strong class="logo">CongoCart</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleContent"
             aria-controls="navbarToggleContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="navbarToggleContent" class="navbar-collapse collapse hide">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Categories
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'category_view' 'electronics' %}">Electronics</a>
-                        <a class="dropdown-item" href="{% url 'category_view' 'appliances' %}">Appliances</a>
-                        <a class="dropdown-item" href="{% url 'category_view' 'fashion' %}">Fashion</a>
-                        <a class="dropdown-item" href="{% url 'category_view' 'home_decor' %}">Home Decoration</a>
-                        <a class="dropdown-item" href="{% url 'category_view' 'medicines' %}">Medicines</a>
-                        <a class="dropdown-item" href="{% url 'category_view' 'health_&_fitness' %}">Health &
-                            Fitness</a>
-                        <a class="dropdown-item" href="{% url 'category_view' 'groceries' %}">Groceries</a>
-                        <a class="dropdown-item" href="{% url 'category_view' 'books_&_stationary' %}">Books &
-                            Stationary</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Buy / Sell
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'buy' %}">Buy</a>
-                        <a class="dropdown-item" href="{% url 'sell' %}">Sell</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'update-profile' %}">Complete KYC</a>
-                </li>
-            </ul>
-            <!-- User Only Options -->
-            <ul class="nav navbar-nav ml-auto">
-                {% if request.user.is_authenticated %}
+        {#            <span class="navbar-toggler-icon"></span>#}
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+             width="32" height="32"
+             viewBox="0 0 172 172"
+             style=" fill:#000000;">
+            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+               stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+               font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                <path d="M0,172v-172h172v172z" fill="none"></path>
+                <g fill="#2ecc71">
+                    <path d="M34.4,13.76c-11.38296,0 -20.64,9.25704 -20.64,20.64c0,11.38296 9.25704,20.64 20.64,20.64c11.38296,0 20.64,-9.25704 20.64,-20.64c0,-11.38296 -9.25704,-20.64 -20.64,-20.64zM86,13.76c-11.38296,0 -20.64,9.25704 -20.64,20.64c0,11.38296 9.25704,20.64 20.64,20.64c11.38296,0 20.64,-9.25704 20.64,-20.64c0,-11.38296 -9.25704,-20.64 -20.64,-20.64zM137.6,13.76c-11.38296,0 -20.64,9.25704 -20.64,20.64c0,11.38296 9.25704,20.64 20.64,20.64c11.38296,0 20.64,-9.25704 20.64,-20.64c0,-11.38296 -9.25704,-20.64 -20.64,-20.64zM34.4,65.36c-11.38296,0 -20.64,9.25704 -20.64,20.64c0,11.38296 9.25704,20.64 20.64,20.64c11.38296,0 20.64,-9.25704 20.64,-20.64c0,-11.38296 -9.25704,-20.64 -20.64,-20.64zM86,65.36c-11.38296,0 -20.64,9.25704 -20.64,20.64c0,11.38296 9.25704,20.64 20.64,20.64c11.38296,0 20.64,-9.25704 20.64,-20.64c0,-11.38296 -9.25704,-20.64 -20.64,-20.64zM137.6,65.36c-11.38296,0 -20.64,9.25704 -20.64,20.64c0,11.38296 9.25704,20.64 20.64,20.64c11.38296,0 20.64,-9.25704 20.64,-20.64c0,-11.38296 -9.25704,-20.64 -20.64,-20.64zM34.4,116.96c-11.38296,0 -20.64,9.25704 -20.64,20.64c0,11.38296 9.25704,20.64 20.64,20.64c11.38296,0 20.64,-9.25704 20.64,-20.64c0,-11.38296 -9.25704,-20.64 -20.64,-20.64zM86,116.96c-11.38296,0 -20.64,9.25704 -20.64,20.64c0,11.38296 9.25704,20.64 20.64,20.64c11.38296,0 20.64,-9.25704 20.64,-20.64c0,-11.38296 -9.25704,-20.64 -20.64,-20.64zM137.6,116.96c-11.38296,0 -20.64,9.25704 -20.64,20.64c0,11.38296 9.25704,20.64 20.64,20.64c11.38296,0 20.64,-9.25704 20.64,-20.64c0,-11.38296 -9.25704,-20.64 -20.64,-20.64z"></path>
+                </g>
+            </g>
+        </svg>
+    </button>
+    <div id="navbarToggleContent" class="navbar-collapse collapse hide">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'category_view' 'electronics' %}">Electronics</a>
+                    <a class="dropdown-item" href="{% url 'category_view' 'appliances' %}">Appliances</a>
+                    <a class="dropdown-item" href="{% url 'category_view' 'fashion' %}">Fashion</a>
+                    <a class="dropdown-item" href="{% url 'category_view' 'home_decor' %}">Home Decoration</a>
+                    <a class="dropdown-item" href="{% url 'category_view' 'medicines' %}">Medicines</a>
+                    <a class="dropdown-item" href="{% url 'category_view' 'health_&_fitness' %}">Health &
+                        Fitness</a>
+                    <a class="dropdown-item" href="{% url 'category_view' 'groceries' %}">Groceries</a>
+                    <a class="dropdown-item" href="{% url 'category_view' 'books_&_stationary' %}">Books &
+                        Stationary</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Buy / Sell
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'buy' %}">Buy</a>
+                    <a class="dropdown-item" href="{% url 'sell' %}">Sell</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'update-profile' %}">Complete KYC</a>
+            </li>
+        </ul>
+        <!-- User Only Options -->
+        <ul class="nav navbar-nav ml-auto">
+            {% if request.user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'cart' %}"><img
                             src="https://img.icons8.com/material/24/26e07f/shopping-cart--v1.png" / width="30px"
-                            height="25px">
+                        height="25px">
                         <span class="badge badge-pill badge-danger" id="cart"></span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ request.user.phone_number }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
-                        <a class="dropdown-item" href="#">My Orders</a>
+                        <a class="dropdown-item" href="{% url 'past-orders' %}">My Orders</a>
                         <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                     </div>
                 </li>
-                {% else %}
+            {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'register' %}"><span class="fas fa-user"></span> Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}"><span class="fas fa-sign-in-alt"></span> Login</a>
                 </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container" style="padding-top: 20px;">
-        {% block content %}
-        {% endblock content %}
+            {% endif %}
+        </ul>
     </div>
+</nav>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+<div class="container" style="padding-top: 20px;">
+    {% block content %}
+    {% endblock content %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 </body>
