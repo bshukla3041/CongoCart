@@ -101,6 +101,7 @@ def update_profile_view(request):
             profile.congo_user = request.user
             profile.is_verified = True
             profile.save()
+            messages.success(request, 'Your profile has been updated!')
             return redirect('home')
         else:
             context['form'] = update_profile_form

@@ -76,7 +76,7 @@ class CongoUserProfile(models.Model):
     ]
 
     congo_user = models.OneToOneField(
-        get_user_model(), on_delete=models.CASCADE)
+        get_user_model(), on_delete=models.CASCADE, related_name='profile')
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=150)
     is_verified = models.BooleanField(default=False)
