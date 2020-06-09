@@ -105,7 +105,9 @@ def product_add_view(request):
             product = product_form.save(commit=False)
             product.seller = seller
             product.save()
-            return redirect('home')
+            message = 'Your product ' + str(product.title) + ' has been added to your product listing for sale.'
+            messages.success(request, message)
+            return redirect('sell')
         else:
             context['form'] = product_form
     else:

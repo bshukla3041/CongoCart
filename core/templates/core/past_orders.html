@@ -44,7 +44,7 @@
                             <li class="media my-4">
                                 <img src="{{ order_item.item.image.url }}" class="m-4" width="72px"
                                      height="72px"/>
-                                <div class="media-body">
+                                <div class="media-body text-nowrap table-responsive">
                                     <strong class="mt-1 mb-1"><a
                                             href="{% url 'product_detail_view' category=order_item.item.category product_id=order_item.item.id %}">{{ order_item.item.title }}</a></strong>
                                     <p><em>{{ order_item.item.description_short }}</em></p>

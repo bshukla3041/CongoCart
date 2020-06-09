@@ -140,5 +140,7 @@ MEDIA_URL = '/media/'
 
 LOGIN_URL = 'login'
 
-STRIPE_SECRET_KEY = 'secret_stripe_test_key'
-STRIPE_PUBLISHABLE_KEY = 'publishable_stripe_test_key'
+STRIPE_SECRET_KEY = 'secret_test_key'
+STRIPE_PUBLISHABLE_KEY = 'publishable_test_key'
+
+
