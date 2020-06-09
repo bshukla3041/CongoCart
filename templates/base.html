@@ -30,6 +30,11 @@
             font-weight: normal;
             src: url("{% static 'fonts/ProductSans-Light.woff' %}") format('woff');
         }
+
+        .navbar-toggler {
+            outline: none;
+            border: none;
+        }
     </style>
 </head>
 
@@ -58,7 +63,7 @@
             </svg>
         </button>
         <div id="navbarToggleContent" class="navbar-collapse collapse hide">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto text-center">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
@@ -95,10 +100,10 @@
                 </li>
             </ul>
             <!-- User Only Options -->
-            <ul class="nav navbar-nav ml-auto">
+            <ul class="nav navbar-nav ml-auto text-center">
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'cart' %}"><img
+                    <a class="nav-link" href="{% url 'cart' %}">My Cart <img
                             src="https://img.icons8.com/material/24/26e07f/shopping-cart--v1.png" / width="30px"
                             height="25px">
                         <span class="badge badge-pill badge-danger" id="cart"></span>
