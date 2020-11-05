@@ -30,5 +30,5 @@ $ cd CongoCart
 * Access the application in your browser at http://localhost:8000
 * Live Demo of this application is hosted at https://congocart.pythonanywhere.com/
 
-### License
+## License
 CongoCart is distributed under the [MIT License](https://github.com/bshukla3041/CongoCart/blob/master/LICENSE). 
