@@ -1,4 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 
 # CongoCart
@@ -9,7 +11,7 @@ A simple B2B E-Commerce web application to provide advantages of online shopping
 ### Clone the repository
 Clone the repository and change to project root directory (where manage.py file is).
 ```
-$ git clone git@github.com:bshukla3041/CongoCart.git
+$ git clone https://github.com/bshukla3041/CongoCart.git
 $ cd CongoCart
 ```
 ### Install the dependencies
