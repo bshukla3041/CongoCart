@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 # CongoCart
 A simple B2B E-Commerce web application to provide advantages of online shopping to retailers and wholesalers. 
 
@@ -26,4 +29,4 @@ $ cd CongoCart
 * Live Demo of this application is hosted at https://congocart.pythonanywhere.com/
 
 ### License
-CongoCart is distributed under the MIT License. 
+CongoCart is distributed under the [MIT License](https://github.com/bshukla3041/CongoCart/blob/master/LICENSE). 
